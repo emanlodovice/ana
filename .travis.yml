@@ -1,0 +1,9 @@
+languate: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements.txt
+branches:
+  only:
+    - master
+script: python manage.py test
