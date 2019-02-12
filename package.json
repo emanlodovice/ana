@@ -8,7 +8,8 @@
     "prebuild": "npm run clean",
     "build": "webpack",
     "prebuild:watch": "npm run clean",
-    "build:watch": "webpack --watch"
+    "build:watch": "webpack --watch",
+    "lint": "eslint 'ana/static/ana/**/*.jsx'"
   },
   "repository": {
     "type": "git",
