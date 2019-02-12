@@ -2,3 +2,5 @@ Django==2.1.5
 djangorestframework==3.9.1
 pytz==2018.9
 ipython
+pytest==4.2.0
+pytest-django==3.4.7
