@@ -8,7 +8,7 @@ class Verb(models.Model):
         return self.slug
 
     def __repr__(self):
-        return f'<Verb: {self.slug}>'
+        return self.slug
 
 
 class Record(models.Model):
