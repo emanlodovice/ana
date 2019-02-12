@@ -1,6 +1,5 @@
 import path from 'path';
 
-const STATIC_URL = process.env.STATIC_URL || 'http://localhost:5000/';
 const NODE_ENV = process.env.NODE_ENV || 'production';
 
 function resolvePath(staticPath) {
@@ -18,8 +17,7 @@ export default {
     output: {
         path: resolvePath('dist'),
         filename: 'index.js',
-        chunkFilename: '[name].js',
-        publicPath: STATIC_URL
+        chunkFilename: '[name].js'
     },
 
     mode: NODE_ENV === 'production' ? 'production' : 'development',
