@@ -22,5 +22,14 @@
   "dependencies": {
     "react": "16.8.1",
     "react-dom": "16.8.1"
+  },
+  "devDependencies": {
+    "css-loader": "2.1.0",
+    "file-loader": "3.0.1",
+    "react-loader": "2.4.5",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.1",
+    "webpack": "4.29.3",
+    "webpack-cli": "3.2.3"
   }
 }
