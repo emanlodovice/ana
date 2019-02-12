@@ -35,7 +35,7 @@ export default {
             test: [imagesRegex, fontsRegex],
             loader: 'file-loader',
             options: {
-                name: '[path][name].[ext]'
+                name: '[name].[ext]'
             }
         }]
     }
