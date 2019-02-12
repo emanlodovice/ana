@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/emanlodovice/ana/issues"
   },
-  "homepage": "https://github.com/emanlodovice/ana#readme"
+  "homepage": "https://github.com/emanlodovice/ana#readme",
+  "dependencies": {
+    "react": "16.8.1",
+    "react-dom": "16.8.1"
+  }
 }
