@@ -6,4 +6,4 @@ install:
 branches:
   only:
     - master
-script: python manage.py test
+script: pytest
