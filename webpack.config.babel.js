@@ -28,7 +28,16 @@ export default {
             loader: 'babel-loader'
         }, {
             test: stylesheetsRegex,
-            use: ['style-loader', 'css-loader', 'sass-loader']
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    modules: true
+                }
+            }, {
+                loader: 'sass-loader'
+            }]
         }, {
             test: [imagesRegex, fontsRegex],
             loader: 'file-loader',
