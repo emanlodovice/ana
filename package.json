@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/emanlodovice/ana#readme",
   "dependencies": {
+    "d3": "5.9.1",
     "react": "16.8.1",
     "react-dom": "16.8.1"
   },
