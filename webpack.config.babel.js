@@ -1,6 +1,6 @@
 import path from 'path';
 
-const NODE_ENV = process.env.NODE_ENV || 'production';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 function resolvePath(staticPath) {
     return path.join(__dirname, 'ana/static/ana', staticPath);
