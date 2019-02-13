@@ -4,3 +4,4 @@ pytz==2018.9
 ipython
 pytest==4.2.0
 pytest-django==3.4.7
+flake8==3.7.5

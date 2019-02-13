@@ -54,6 +54,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": "npm run lint"
+    "*.{js,jsx}": "npm run lint",
+    "*.py": "flake8"
   }
 }
