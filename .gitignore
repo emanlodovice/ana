@@ -10,5 +10,10 @@ __pycache__/
 db.sqlite3
 .vscode
 *.swp
+
 node_modules
 ana/static/ana/dist
+
+dist/*
+#egg's specific
+*.egg-info
