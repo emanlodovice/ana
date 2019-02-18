@@ -1,11 +1,12 @@
 .lineChart {
     width: 100%;
-    height: 20rem;
+    height: 100%;
 }
 
-.lineChart div {
-    height: 10px;
-    background-color: red;
+.lineChart svg {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .lineChart path {
