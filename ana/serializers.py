@@ -1,3 +1,5 @@
+from django.core.validators import validate_slug, ValidationError
+
 from rest_framework import serializers
 
 from .models import Record, Verb
@@ -18,7 +20,11 @@ class RecordSerializer(serializers.ModelSerializer):
         try:
             verb = Verb.objects.get(slug=value)
         except Verb.DoesNotExist:
-            raise serializers.ValidationError('Unregisted verb.')
+            try:
+                validate_slug(value)
+            except ValidationError:
+                raise serializers.ValidationError('Invalid verb slug.')
+            verb = Verb.objects.create(slug=value)
         return verb
 
     class Meta:
