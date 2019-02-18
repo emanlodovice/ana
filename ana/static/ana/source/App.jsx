@@ -1,8 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Card from './components/Card/Card.jsx';
+import LineChart from './charts/LineChart/LineChart.jsx';
 import './stylesheets/global.scss';
 
+function generateArrayWithSize(n) {
+    return new Array(n).fill(null);
+}
+
+function generateDummyData() {
+    return generateArrayWithSize(3).map((_, i) => ({
+        label: i,
+        data: generateArrayWithSize(5)
+            .map(() => Math.round((Math.random() * 200) - 100))
+    }));
+}
+
 export default function App() {
+    const [data] = useState(generateDummyData());
+
     return (
-        <h1>Ana Dashboard</h1>
+        <Card>
+            <LineChart data={data} />
+        </Card>
     );
 }
