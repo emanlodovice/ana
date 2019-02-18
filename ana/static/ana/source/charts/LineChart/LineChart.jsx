@@ -42,7 +42,7 @@ export default function LineChart({data}) {
         observer.observe(ref.current);
 
         return () => observer.unobserve(ref.current);
-    }, []);
+    }, data);
 
     return (
         <div ref={ref} className={style.lineChart}>
