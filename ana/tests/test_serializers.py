@@ -22,8 +22,8 @@ class RecordSerializerTestCase(TestCase):
             'field2': '2'
         })
         self.assertFalse(serializer.is_valid())
-        self.assertEqual(
-            'Invalid verb slug.', serializer.errors['verb_slug'][0])
+        self.assertEqual('Invalid verb slug.',
+                         serializer.errors['verb_slug'][0])
 
     def test_create_verb(self):
         serializer = RecordSerializer(data={

@@ -55,6 +55,6 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "npm run lint",
-    "*.py": "flake8"
+    "*.py": "flake8 --exclude **/migrations/**"
   }
 }

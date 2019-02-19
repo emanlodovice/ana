@@ -13,6 +13,6 @@ record_router.register('records', RecordViewset)
 
 urlpatterns = [
     path('', DashboardView.as_view(), name='ana-dashboard'),
-    url(r'^api/', include(record_router.urls)),
+    url(r'^api/', include((record_router.urls, 'ana'))),
     url(r'^admin/', admin.site.urls),
 ]

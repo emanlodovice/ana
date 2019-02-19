@@ -20,3 +20,7 @@ class Record(models.Model):
 
     class Meta:
         ordering = ['pk']
+        permissions = (
+            ('can_access_ana_api_analytics', 'Can access analytics api'),
+            ('can_access_ana_dashboard', 'Can view analytics dashboard')
+        )
