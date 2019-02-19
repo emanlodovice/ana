@@ -8,11 +8,11 @@ function generateArrayWithSize(n) {
 }
 
 function generateDummyData() {
-    return generateArrayWithSize(3).map((_, i) => ({
-        label: i,
-        data: generateArrayWithSize(5)
-            .map(() => Math.round((Math.random() * 200) - 100))
-    }));
+    return generateArrayWithSize(3).map(
+        () => generateArrayWithSize(5).map(
+            () => Math.round((Math.random() * 200) - 100)
+        )
+    );
 }
 
 export default function App() {

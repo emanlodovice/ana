@@ -5,9 +5,9 @@ import style from './LineChart.scss';
 function drawLineChart(svg, data, rect) {
     // Create a line generator whose max and min values are scaled within the
     // size of the component.
-    const xMax = Math.max(...data.map(d => d.data.length)) - 1;
-    const yMax = Math.max(...data.map(d => Math.max(...d.data)));
-    const yMin = Math.min(...data.map(d => Math.min(...d.data)));
+    const xMax = Math.max(...data.map(d => d.length)) - 1;
+    const yMax = Math.max(...data.map(d => Math.max(...d)));
+    const yMin = Math.min(...data.map(d => Math.min(...d)));
     const xScale = d3.scaleLinear().domain([0, xMax]).range([0, rect.width]);
     const yScale = d3.scaleLinear().domain([yMin, yMax]).range([0, rect.height]);
     const line = d3.line().x((d, i) => xScale(i)).y(d => yScale(d));
@@ -24,7 +24,7 @@ function drawLineChart(svg, data, rect) {
         .append('path')
         .attr('stroke', 'red')
         .attr('stroke-width', 1)
-        .attr('d', d => line(d.data));
+        .attr('d', line);
 }
 
 export default function LineChart({data}) {
