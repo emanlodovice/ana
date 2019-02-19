@@ -27,6 +27,7 @@
   },
 
   "rules": {
+    "function-paren-newline": "off",
     "react/prop-types": "off"
   }
 }
