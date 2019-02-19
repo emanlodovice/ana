@@ -1,41 +1,24 @@
 import React, {useEffect, useRef, useState} from 'react';
-import * as d3 from 'd3';
+import lineFactory from './lineFactory';
 import style from './LineChart.scss';
-
-function lineGeneratorFactory({data, width=0, height=0}) {
-    const x = d3.scaleLinear()
-        .domain([0, Math.max(...data.map(d => d.data.length)) - 1])
-        .range([0, width]);
-    const y = d3.scaleLinear()
-        .domain([
-            Math.min(...data.map(d => Math.min(...d.data))),
-            Math.max(...data.map(d => Math.max(...d.data)))
-        ])
-        .range([0, height]);
-
-    return d3.line().x((d, i) => x(i)).y(d => y(d));
-}
 
 export default function LineChart({data}) {
     const ref = useRef();
+    const [line, setLine] = useState(() => lineFactory({data}));
 
-    const [lineGenerator, setLineGenerator] = useState(
-        () => lineGeneratorFactory({data})
-    );
-
-    const updateLineGenerator = rect => setLineGenerator(
-        () => lineGeneratorFactory({data, ...rect})
+    const updateLine = rect => setLine(
+        () => lineFactory({data, ...rect})
     );
 
     useEffect(() => {
         const element = ref.current;
 
         // Sets line generator based on initial component dimensions
-        updateLineGenerator(element.getBoundingClientRect().toJSON());
+        updateLine(element.getBoundingClientRect().toJSON());
 
         // Update line generator as the component is resized
         const observer = new ResizeObserver(
-            ([entry]) => updateLineGenerator(entry.contentRect.toJSON())
+            ([entry]) => updateLine(entry.contentRect.toJSON())
         );
         observer.observe(ref.current);
 
@@ -50,7 +33,7 @@ export default function LineChart({data}) {
                         key={d.label}
                         stroke="red"
                         strokeWidth="1"
-                        d={lineGenerator(d.data)}
+                        d={line(d.data)}
                     />
                 ))}
             </svg>
