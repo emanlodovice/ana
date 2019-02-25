@@ -2,6 +2,7 @@ from ana.serializers import RecordSerializer
 from ana.models import Verb, Record
 
 from django.test import TestCase
+from django.contrib.auth import get_user_model
 
 
 class RecordSerializerTestCase(TestCase):
@@ -35,3 +36,18 @@ class RecordSerializerTestCase(TestCase):
         serializer.save()
         self.assertEqual(1, Verb.objects.filter(slug='eee').count())
         self.assertEqual(1, Record.objects.filter(verb__slug='eee').count())
+
+    def test_validate_with_verb_config(self):
+        serializer = RecordSerializer(data={
+            'verb_slug': 'page-view',
+            'field1': '1',
+            'field2': '2'
+        })
+        self.assertFalse(serializer.is_valid())
+        User = get_user_model()
+        user = User.objects.create_user(username='sample', password='qwe')
+        serializer = RecordSerializer(data={
+            'verb_slug': 'page-view',
+            'field1': str(user.pk),
+            'field2': '2'
+        })
