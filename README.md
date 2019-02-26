@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="300" src="logo-horizontal.png">
+</p>
+
 # ana
 [![Build Status](https://travis-ci.com/emanlodovice/ana.svg?branch=master)](https://travis-ci.com/emanlodovice/ana)
 
